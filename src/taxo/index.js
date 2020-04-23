@@ -34,16 +34,13 @@ function printResult(result) {
   }  
 }
 
-async function run({ read, id, name, list }) {
-  read = read || 'pt-BR';
+async function run({ read, id, name, list }) {  
   try {
     console.log(`Reading ${read} Taxonomy file`, '\n');
 
     let data = {};
-    if (read) {
-      const result = await readCsv(read);
-      data = result;
-    }
+    const result = await readCsv(read);
+    data = result;
 
     if (id || name) {
       const result = await search(data, id, name);

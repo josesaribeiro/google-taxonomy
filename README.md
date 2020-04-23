@@ -4,7 +4,7 @@
 
 > In a section below you will find a list of all the files to download in XLS format
 
-Along with this code the following already converted CSV taxonomy files will be provided:
+Along with this code, the following already converted CSV taxonomy files will be provided:
 
 - en-US
 - es-ES
@@ -18,7 +18,7 @@ In order to just read the data, execute the following:
 node taxo taxo [--read <language>]
 ```
 
-> The parameter `--read <language>` can be suppressed. The default will then be assume. Currently the default is `pt-BR`.
+> The parameter `--read <language>` can be suppressed. The default will then be assume. The default configuration can be set at the config [file](./config/index.js).
 
 In order to retrieve the list of items in the first level just run:
 

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { config } = require('../../config');
 
 function getParents(data, item, result = []) {
   const { items, relations } = data;
@@ -47,7 +48,12 @@ async function search(data, id = 0, name = '') {
   };
 }
 
-async function readCsv(language) {
+async function readCsv(language = '') {
+
+  language = config.language.loaded.includes(language) ?
+    language :
+    config.language.default;
+
   const csvPath = path.resolve(__dirname, `data/${language}.taxo.csv`);
   const csv = fs.readFileSync(csvPath, 'utf-8');
   const lines = csv.split('\n');
