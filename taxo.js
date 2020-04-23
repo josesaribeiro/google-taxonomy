@@ -6,11 +6,11 @@ const help = require('./src/help');
 // Operation strategies
 const request = require('./src/request');
 const test = require('./src/test');
-const taxo = require('./src/taxo');
+const csv = require('./src/csv');
 
 // Setup and run operation strategy
 (async function run({ operation, args }) {
-  const op = { request, test, taxo }[operation];
+  const op = { request, test, csv }[operation];
 
   // Merge args with the settings on the config file in case there's any missing arg on the CMD
   const mergedArgs = env.mergeDefaultSettings(args);

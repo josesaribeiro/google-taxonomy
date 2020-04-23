@@ -12,10 +12,11 @@ Along with this code, the following already converted CSV taxonomy files will be
 
 ### CLI Usage
 
-In order to just read the data, execute the following:
+#### CSV Files TASK
+In order to just read the data from CSV files, execute the following:
 
 ```
-node taxo taxo [--read <language>]
+node taxo csv [--read <language>]
 ```
 
 > The parameter `--read <language>` can be suppressed. The default will then be assume. The default configuration can be set at the config [file](./config/index.js).
@@ -23,7 +24,7 @@ node taxo taxo [--read <language>]
 In order to retrieve the list of items in the first level just run:
 
 ```
-node taxo taxo --list 1
+node taxo csv --list 1
 ```
 
 > You can choose any level to list from. All the items will be sorted by the `id` field.
@@ -31,7 +32,7 @@ node taxo taxo --list 1
 In order to get information about an item you can either pass the name of the item or its id:
 
 ```
-node taxo taxo [--id 999] [--name "Yoga & Pilates"]
+node taxo csv [--id 999] [--name "Yoga & Pilates"]
 ``` 
 
 > Both parameters can be sent or neither, in case both are sent, the name parameter will be ignored
