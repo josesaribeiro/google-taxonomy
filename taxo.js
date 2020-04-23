@@ -7,10 +7,11 @@ const help = require('./src/help');
 const request = require('./src/request');
 const test = require('./src/test');
 const csv = require('./src/csv');
+const db = require('./src/db');
 
 // Setup and run operation strategy
 (async function run({ operation, args }) {
-  const op = { request, test, csv }[operation];
+  const op = { request, test, csv, db }[operation];
 
   // Merge args with the settings on the config file in case there's any missing arg on the CMD
   const mergedArgs = env.mergeDefaultSettings(args);

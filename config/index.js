@@ -2,17 +2,18 @@ const config = {
   language : {
     default : 'pt-BR',
     loaded : [
-      'pt-BR',
-      'en-US',
-      'es-ES'
+      { id : 1, code : 'en-US' },
+      { id : 2, code : 'es-ES' },
+      { id : 3, code : 'pt-BR' }
     ]
   },
   db : {
     settings : {
+      database: 'taxo',
       host : 'localhost',
+      password : '',
       port : 5432,
       user : 'taxo',
-      password : ''
     }
   }
 }
