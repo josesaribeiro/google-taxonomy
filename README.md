@@ -81,12 +81,13 @@ The `db` task is available to read data from the CSV files and load them into a 
 In order to load data from a csv file to the db instance, run the following:
 
 ```
-node taxo db --load [<language> | all]
+node taxo db [--load [<language> | all]] [--script]
 ```
 > The language can be supressed, in this case the one used will be the one set as default.
 
 > The parameter `all` will create a multi-language instance of the taxonomy database and will load all files listed in the `config.language.loaded` array and found at the [data folder](./data).
 
+> The subtask `--script` will create a script file in the root folder with all the information loaded in the db
 
 
 ### Google Taxonomy Urls XLS List

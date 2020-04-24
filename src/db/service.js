@@ -61,9 +61,36 @@ async function loadCsvToDb(languageCode, reset = true) {
   };
 }
 
-function saveDataScript() {
+async function saveDataScript() {
+  let stream = fs.createWriteStream('taxoG.sql', { flags: 'w' });
+  await stream.write(db.concatResetDBQueries);
+
+  const data = await db.readFullDBData();
+
+  for (const language of data.languages) {
+    await stream.write(
+      db.getAddLanguageQuery(
+        language.id, language.code));
+  }
+
+  for (const item of data.items) {
+    await stream.write(
+      db.getAddItemQuery(
+        { id : item.TaxoLanguageId },
+        item));
+  }
+
+  for (const relation of data.relations) {
+    await stream.write(
+      db.getAddRelationQuery(
+        { id : relation.TaxoLanguageId },
+        relation));
+  }
+
+  stream.end();
+  
   return {
-    error : 'not implemented'
+    status: 'Script generated Successfully'
   };
 }
 
